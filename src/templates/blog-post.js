@@ -37,15 +37,17 @@ const TitleAuthor = styled.div`
     font-family: 'Poppins';
     color:white;
     }
-    
-    
-    
-  
 `
 
 const Text = styled.div`
   padding:3rem;
   max-width:60rem;
+`
+
+const LinkStyled = styled(Link)`
+  text-decoration:none;
+  color:black;
+  margin-left:2rem;
 `
 
 export const data = graphql`
@@ -73,7 +75,7 @@ const BlogPost = ( { data }) => {
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </Text>
       </PageWrapper>
-        <Link to='/'>&larr; Back to Home</Link>
+        <LinkStyled to='/'>&larr; Back to Home</LinkStyled>
     </Layout>
   )
 }

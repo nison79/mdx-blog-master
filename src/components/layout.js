@@ -24,10 +24,11 @@ const PageContainer = styled.div`
 const FooterStyled = styled.footer`
   display:flex;
   justify-content:center;
-
+  font-family: 'Poppins';
+  font-size:0.8rem;
 
   a {
-    margin-left:8px;
+    margin-left:5px;
     display:inline;
     text-decoration:none;
     color:lightcoral;

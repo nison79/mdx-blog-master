@@ -25,7 +25,7 @@ const LinkStyled = styled(Link)`
 `
 
 const PostBox = styled.div`
-  padding-top:5rem;
+  padding-top:1rem;
   display:flex;
 
 `
