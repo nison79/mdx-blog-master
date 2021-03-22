@@ -21,19 +21,24 @@ const HeaderStyled = styled.header`
   }
   
 `
+const StaticImageBox= styled.div`
+  margin-left:1rem;
+`
 
 const LinkStyled = styled(Link)`
-  
+  margin-right:1rem;
   text-decoration:none;
   color:black;
 `
 
 const Header = ({ siteTitle }) => (
   <HeaderStyled>
-      <StaticImage 
-      alt="logo"
-      width={40}
-      src="../images/slice1.svg" /> 
+    <StaticImageBox>
+        <StaticImage 
+        alt="logo"
+        width={40}
+        src="../images/slice1.svg" /> 
+    </StaticImageBox>
       <div>
         <h3>
           <LinkStyled to="/">

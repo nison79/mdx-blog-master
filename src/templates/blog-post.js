@@ -25,6 +25,25 @@ const TitleAuthor = styled.div`
   margin-right:5rem;
   margin-top:2rem;
   width:20rem;
+  box-shadow:
+  0 10.1px 3.6px rgba(0, 0, 0, 0.068),
+  0 10.4px 10px rgba(0, 0, 0, 0.115),
+  0 2.1px 24.1px rgba(0, 0, 0, 0.148),
+  0 90px 80px rgba(0, 0, 0, 0.2);
+  animation: transform 600ms ease-in-out;
+
+  @keyframes transform {
+    from {
+      transform:translateX(-500px);
+      background-color:white;
+    }
+    to {
+      transform:translateX(0px);
+      background-color:black;
+    }
+  }
+
+
   @media(min-width:1500px) {
       width:20rem;
       height:30rem;
