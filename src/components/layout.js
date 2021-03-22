@@ -15,20 +15,24 @@ import Header from "./header"
 import "./layout.css"
 
 const PageContainer = styled.div`
+  display:grid;
+  grid-template-columns:1fr;
+  min-height:90vh;
+  font-family: 'Poppins';
+`
+
+const FooterStyled = styled.footer`
   display:flex;
-  flex-direction:column;
-  min-height:100vh;
-`
+  justify-content:center;
 
-const Container = styled.main`
-  flex-grow:1;
-  h1 {
-    text-align:center;
+
+  a {
+    margin-left:8px;
+    display:inline;
+    text-decoration:none;
+    color:lightcoral;
   }
-  /* margin-top:97px; */
 `
-
-
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -36,26 +40,28 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          author
         }
       }
     }
   `)
 
   return (
-    <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
+      <Header  siteTitle={data.site.siteMetadata?.title || `Title`} />
       <PageContainer>
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <Container> { children } </Container>
-          <footer
+        <main> { children } </main>
+          
+      </PageContainer>
+      <FooterStyled
             style={{
               marginTop: `2rem`,
             }}
           >
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.com">Gatsby</a>
-          </footer>
-      </PageContainer>
+            © {new Date().getFullYear()}, Built by
+            {/* {` `} */}
+            <a href="https://www.gatsbyjs.com">{data.site.siteMetadata?.author || `Title`}</a>
+      </FooterStyled>
     </ThemeProvider>
   )
 }

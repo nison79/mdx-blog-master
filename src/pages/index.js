@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, useStaticQuery ,graphql } from "gatsby"
-import { GatsbyImage } from 'gatsby-plugin-image'
+// import { GatsbyImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import Layout from "../components/layout"
@@ -12,6 +12,21 @@ const BlogPreview = styled.div`
   justify-content:center;
   align-items:center;
   padding:2rem;
+  h1 , h3 {
+    font-family:'Poppins';
+    font-weight: 300;
+    letter-spacing:-1px;
+  }
+`
+
+const LinkStyled = styled(Link)`
+  text-decoration:none;
+  color:black;
+`
+
+const PostBox = styled.div`
+  padding-top:5rem;
+  display:flex;
 
 `
 
@@ -20,7 +35,7 @@ const IndexPage = () => {
     query {
       file(relativePath: {eq : "bwelli.jpg"}) {
         childImageSharp {
-          gatsbyImageData( width:400 , layout: FULL_WIDTH , quality: 100  )
+          gatsbyImageData( width:800  layout: CONSTRAINED , quality: 100  )
         }
       }
       allMdx {
@@ -38,17 +53,20 @@ const IndexPage = () => {
   return (
     <Layout>
     <SEO title="Home" />
-    <GatsbyImage 
-      tag="header"
-      image={data.file.childImageSharp.gatsbyImageData}
-      alt = " girl in the beach "
-    />
+    
     <BlogPreview>
-      <h2>Blog Posts</h2>
+      <h1>Blog Posts</h1>
+      {/* <GatsbyImage 
+        tag="header"
+        image={data.file.childImageSharp.gatsbyImageData}
+        alt = " girl in the beach "
+      /> */}
       {data.allMdx.nodes.map(post => (
-        <h2>
-        <Link to={post.frontmatter.slug}>{post.frontmatter.title}</Link>
-        </h2>
+        <PostBox>
+          <h3>
+          <LinkStyled to={post.frontmatter.slug}>{post.frontmatter.title}</LinkStyled>
+          </h3>
+        </PostBox>
       ))}
     </BlogPreview>
   </Layout>
