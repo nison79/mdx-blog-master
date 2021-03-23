@@ -6,6 +6,7 @@ import IconMobile from '../components/IconMobile'
 import IconWorkPhone from '../components/IconWorkPhone'
 import IconTwitter from '../components/IconTwitter'
 import { Link , graphql } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import SEO from "../components/seo"
 
@@ -16,9 +17,10 @@ const PageWrapper =styled.div`
   font-family: 'Poppins';
   place-items:center;
   min-height:100vh;
+  /* max-width:50%; */
   @media(max-width:768px){
     grid-template-columns:1fr;
-    grid-template-rows:200px 500px;
+    grid-template-rows:400px 200px;
   }
   @media(min-width:1500px) {
     display:flex;
@@ -54,8 +56,20 @@ const InfoBoxInfo =styled.div`
   padding:0.12rem 1rem;
   /* justify-content:center; */
   p {
-    margin-left:8px;
+    margin-left:24px;
   }
+  a {
+    text-decoration:none;
+    color:black;
+    transition: all 500ms ease;
+
+    &:hover {
+      color:violet;
+      transform:scale(1.2);
+      transform:translateX(15px);
+    }
+  }
+  
 `
 
 const contact = ({ data }) => {
@@ -63,7 +77,14 @@ const contact = ({ data }) => {
     <Layout>
       <SEO title="Contact" />
       <PageWrapper>
-          <h1>Contact</h1>
+          <StaticImage 
+            src="../images/contact.svg"
+            alt="contact-writing"
+            layout="constrained"
+            width={200}
+            quality={100}
+            transformOptions={{fit:"cover"}}
+          />
         <Content>
           <InfoBox>
             <InfoBoxInfo>
@@ -72,7 +93,9 @@ const contact = ({ data }) => {
             </InfoBoxInfo>
             <InfoBoxInfo>
                 <IconEmail/>
-                <p>{data.site.siteMetadata.email}</p>
+                <a href="mailto:georgenison@gmail.com" target="_blank" rel="noopener noreferrer ">
+                  <p>{data.site.siteMetadata.email}</p>
+                </a>
             </InfoBoxInfo>
             <InfoBoxInfo>
                 <IconMobile/>
@@ -83,8 +106,10 @@ const contact = ({ data }) => {
                 <p>{data.site.siteMetadata.work}</p>
             </InfoBoxInfo>
             <InfoBoxInfo>
-                <IconTwitter/>
-                <p>{data.site.siteMetadata.twitter}</p>
+              <IconTwitter/>
+                  <a href="https://twitter.com/gnikoglou79" target="_blank" rel="noopener noreferrer "><p>{data.site.siteMetadata.twitter}</p></a>
+                
+                  
             </InfoBoxInfo>
           </InfoBox>
         </Content>

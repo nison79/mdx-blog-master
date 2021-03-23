@@ -1,9 +1,10 @@
 import * as React from "react"
 import { Link, useStaticQuery ,graphql } from "gatsby"
-// import { GatsbyImage } from 'gatsby-plugin-image'
+import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 import Layout from "../components/layout"
+import BackPaint from '../components/BackPaint'
 import SEO from "../components/seo"
 
 const BlogPreview = styled.div`
@@ -13,6 +14,7 @@ const BlogPreview = styled.div`
   align-items:center;
   padding:2rem;
   min-height:100vh;
+  position:relative;
   h1  {
     font-family:'Poppins';
     font-weight: 400;
@@ -30,52 +32,103 @@ const LinkStyled = styled(Link)`
   color:black;
 `
 
-const PostBox = styled.div`
-  &:nth-child(2) {
-    padding-top:12rem;
-  }
+const PostBox1 = styled.div`
+  /* border:1px solid black; */
   display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+  padding:3rem;
+  h1{
+    font-size:2rem;
+  }
+`
 
+const PostBoxInner = styled.div`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:0rem 3rem;
+`
+
+
+const PostBox2 = styled.div`
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+  padding:3rem;
+  h1{
+    font-size:2rem;
+  }
 `
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: {eq : "bwelli.jpg"}) {
-        childImageSharp {
-          gatsbyImageData( width:800  layout: CONSTRAINED , quality: 100  )
-        }
-      }
-      allMdx {
-        nodes{
-          frontmatter{
-            title 
+      politics: allMdx(filter: {frontmatter: {tags: {eq: "Politics"}}}) {
+      edges {
+        node {
+          frontmatter {
             author
+            title
             slug
+            tags
+            date(formatString: "Do MMM YYYY")
+            excerpt
           }
         }
       }
+    }
+      photography: allMdx(filter: {frontmatter: {tags: {eq: "Photography"}}}) {
+            edges {
+              node {
+                frontmatter {
+                  title
+                  tags
+                  slug
+                  date(formatString: "Do MMM YYYY")
+                  excerpt
+          }
+        }
+      }
+    }
     }
   `)
 
   return (
     <Layout>
     <SEO title="Home" />
-    
     <BlogPreview>
-      <h1>Posts</h1>
-      {/* <GatsbyImage 
-        tag="header"
-        image={data.file.childImageSharp.gatsbyImageData}
-        alt = " girl in the beach "
-      /> */}
-      {data.allMdx.nodes.map(post => (
-        <PostBox>
-          <h3>
-          <LinkStyled to={post.frontmatter.slug}>{post.frontmatter.title}</LinkStyled>
-          </h3>
-        </PostBox>
+      <StaticImage 
+        src="../images/posts.svg"
+        alt="post-design"
+        width={200}
+      />
+      {/* Photography post loop */}
+      <PostBox1>
+        <h1>Photography</h1>
+        <PostBoxInner>
+        {data.photography.edges.map(post => (
+          
+            <h3>
+            <LinkStyled to={post.node.frontmatter.slug}>{post.node.frontmatter.title}</LinkStyled>
+            </h3>
       ))}
+        </PostBoxInner>
+      </PostBox1>
+          {/* Politics post loop */}
+        
+      <PostBox2>
+        <h1>Politics</h1>
+        <PostBoxInner>
+      {data.politics.edges.map(post => (
+          <h3>
+          <LinkStyled to={post.node.frontmatter.slug}>{post.node.frontmatter.title}</LinkStyled>
+          </h3>
+      ))}
+          </PostBoxInner>
+        </PostBox2>
     </BlogPreview>
   </Layout>
 
