@@ -1,7 +1,11 @@
 import React from 'react'
 import Layout from '../components/layout'
+import IconHome from '../components/IconHome'
+import IconEmail from '../components/IconEmail'
+import IconMobile from '../components/IconMobile'
+import IconWorkPhone from '../components/IconWorkPhone'
+import IconTwitter from '../components/IconTwitter'
 import { Link , graphql } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 
 const PageWrapper =styled.div`
@@ -10,6 +14,7 @@ const PageWrapper =styled.div`
   /* max-width:1020px; */
   font-family: 'Poppins';
   place-items:center;
+  min-height:100vh;
   @media(min-width:1500px) {
     display:flex;
     justify-content:space-evenly;
@@ -29,8 +34,21 @@ const Content = styled.div`
 
 const InfoBox = styled.div`
   display:flex;
+  flex-direction:column;
   padding:2rem;
   border-bottom:1px solid black;
+  p {
+    margin:0;
+  }
+`
+
+const InfoBoxInfo =styled.div`
+  display:flex;
+  align-items:center;
+  /* justify-content:center; */
+  p {
+    margin-left:8px;
+  }
 `
 
 const contact = ({ data }) => {
@@ -40,11 +58,26 @@ const contact = ({ data }) => {
           <h1>Contact</h1>
         <Content>
           <InfoBox>
-            <p>{data.site.siteMetadata.address}</p>
-            <p>{data.site.siteMetadata.email}</p>
-            <p>{data.site.siteMetadata.mobile}</p>
-            <p>{data.site.siteMetadata.work}</p>
-            <p>{data.site.siteMetadata.twitter}</p>
+            <InfoBoxInfo>
+                <IconHome/>
+                <p>{data.site.siteMetadata.address}</p>
+            </InfoBoxInfo>
+            <InfoBoxInfo>
+                <IconEmail/>
+                <p>{data.site.siteMetadata.email}</p>
+            </InfoBoxInfo>
+            <InfoBoxInfo>
+                <IconMobile/>
+                <p>{data.site.siteMetadata.mobile}</p>
+            </InfoBoxInfo>
+            <InfoBoxInfo>
+                <IconWorkPhone/>
+                <p>{data.site.siteMetadata.work}</p>
+            </InfoBoxInfo>
+            <InfoBoxInfo>
+                <IconTwitter/>
+                <p>{data.site.siteMetadata.twitter}</p>
+            </InfoBoxInfo>
           </InfoBox>
         </Content>
       </PageWrapper>

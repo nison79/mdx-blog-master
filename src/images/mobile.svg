@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 130 187" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-762,-279)">
+        <g id="cellphone-iphone" transform="matrix(6.89403,0,0,6.89403,741.518,283.119)">
+            <path d="M15.999,17.998L6.999,17.998L6.999,3.998L15.999,3.998M11.499,21.998C10.671,21.998 9.999,21.326 9.999,20.498C9.999,19.67 10.671,18.998 11.499,18.998C12.327,18.998 12.999,19.67 12.999,20.498C12.999,21.326 12.327,21.998 11.499,21.998ZM15.499,0.998L7.499,0.998C6.118,0.998 4.999,2.117 4.999,3.498L4.999,20.498C4.999,21.879 6.118,22.998 7.499,22.998L15.499,22.998C16.88,22.998 17.999,21.879 17.999,20.498L17.999,3.498C17.999,2.117 16.88,0.998 15.499,0.998Z" style="fill-rule:nonzero;"/>
+        </g>
+    </g>
+</svg>

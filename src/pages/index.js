@@ -12,11 +12,17 @@ const BlogPreview = styled.div`
   justify-content:center;
   align-items:center;
   padding:2rem;
-  h1 , h3 {
+  min-height:100vh;
+  h1  {
     font-family:'Poppins';
+    font-weight: 400;
+    letter-spacing:-1px;
+  }
+  h3 {font-family:'Poppins';
     font-weight: 300;
     letter-spacing:-1px;
   }
+
 `
 
 const LinkStyled = styled(Link)`
@@ -25,7 +31,9 @@ const LinkStyled = styled(Link)`
 `
 
 const PostBox = styled.div`
-  padding-top:1rem;
+  &:nth-child(2) {
+    padding-top:12rem;
+  }
   display:flex;
 
 `
@@ -55,7 +63,7 @@ const IndexPage = () => {
     <SEO title="Home" />
     
     <BlogPreview>
-      <h1>Blog Posts</h1>
+      <h1>Posts</h1>
       {/* <GatsbyImage 
         tag="header"
         image={data.file.childImageSharp.gatsbyImageData}
