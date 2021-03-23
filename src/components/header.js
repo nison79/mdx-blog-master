@@ -31,6 +31,10 @@ const LinkStyled = styled(Link)`
   color:black;
 `
 
+const MenuItems = styled.div`
+  display:flex;
+`
+
 const Header = ({ siteTitle }) => (
   <HeaderStyled>
     <StaticImageBox>
@@ -39,13 +43,18 @@ const Header = ({ siteTitle }) => (
         width={40}
         src="../images/slice1.svg" /> 
     </StaticImageBox>
-      <div>
+      <MenuItems>
         <h3>
           <LinkStyled to="/">
             Blog
           </LinkStyled>
         </h3>
-      </div>
+        <h3>
+          <LinkStyled to="/contact">
+            Contact
+          </LinkStyled>
+        </h3>
+      </MenuItems>
     
   </HeaderStyled>
 )

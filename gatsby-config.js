@@ -1,8 +1,13 @@
 module.exports = {
   siteMetadata: {
     title: `George Nikoglou`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `My personal blog about my photographic journey and my thoughts.`,
     author: `George Nikoglou`,
+    email: `georgenison@gmail.com`,
+    address: `P.Dimitriou 19 Arkadikos Drama/Greece`,
+    twitter: `@gnikoglou79`,
+    mobile: `6945419898`,
+    work: '2521028513',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -53,7 +58,7 @@ module.exports = {
             {
               resolve: `gatsby-remark-images`,
               options: {
-                maxWidth: 1200,
+                maxWidth: 800,
               }
             }
           ]
