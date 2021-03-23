@@ -7,6 +7,7 @@ import IconWorkPhone from '../components/IconWorkPhone'
 import IconTwitter from '../components/IconTwitter'
 import { Link , graphql } from 'gatsby'
 import styled from 'styled-components'
+import SEO from "../components/seo"
 
 const PageWrapper =styled.div`
   display:grid;
@@ -15,12 +16,15 @@ const PageWrapper =styled.div`
   font-family: 'Poppins';
   place-items:center;
   min-height:100vh;
+  @media(max-width:768px){
+    grid-template-columns:1fr;
+    grid-template-rows:200px 500px;
+  }
   @media(min-width:1500px) {
     display:flex;
     justify-content:space-evenly;
   }
   h1 {
-    padding-left:2rem;
     align-self:center;
   }
 `
@@ -35,7 +39,7 @@ const Content = styled.div`
 const InfoBox = styled.div`
   display:flex;
   flex-direction:column;
-  padding:2rem;
+  padding:2rem 2rem;;
   border-bottom:1px solid black;
   p {
     margin:0;
@@ -45,6 +49,7 @@ const InfoBox = styled.div`
 const InfoBoxInfo =styled.div`
   display:flex;
   align-items:center;
+  padding:0.12rem 1rem;
   /* justify-content:center; */
   p {
     margin-left:8px;
@@ -54,6 +59,7 @@ const InfoBoxInfo =styled.div`
 const contact = ({ data }) => {
   return (
     <Layout>
+      <SEO title="Contact" />
       <PageWrapper>
           <h1>Contact</h1>
         <Content>

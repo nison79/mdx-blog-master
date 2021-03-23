@@ -24,6 +24,7 @@ const TitleAuthor = styled.div`
   padding:0rem 2rem;
   margin-right:5rem;
   margin-top:2rem;
+  margin-bottom:2rem;
   width:20rem;
   box-shadow:
   0 10.1px 3.6px rgba(0, 0, 0, 0.068),
@@ -59,8 +60,8 @@ const TitleAuthor = styled.div`
 `
 
 const Text = styled.div`
-  padding:3rem;
-  max-width:60rem;
+  padding:1rem;
+  max-width:800px;
 `
 
 const LinkStyled = styled(Link)`
