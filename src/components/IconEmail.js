@@ -6,7 +6,8 @@ const IconEmail = () => {
     <div>
       <StaticImage
       src='../images/email.svg'
-      width='30'
+      width={30}
+      alt="icon-email"
       />
     </div>
   )

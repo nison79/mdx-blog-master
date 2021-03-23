@@ -25,6 +25,8 @@ const PageWrapper =styled.div`
     justify-content:space-evenly;
   }
   h1 {
+    font-weight:400;
+    font-family:'Poppins';
     align-self:center;
   }
 `

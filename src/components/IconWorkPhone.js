@@ -6,7 +6,8 @@ const IconWorkPhone = () => {
     <div>
       <StaticImage
       src='../images/workphone.svg'
-      width='30'
+      width={30}
+      alt="icon-work-phone"
       />
     </div>
   )

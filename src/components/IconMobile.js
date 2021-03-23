@@ -6,7 +6,8 @@ const IconMobile = () => {
     <div>
       <StaticImage
       src='../images/mobile.svg'
-      width='30'
+      width={30}
+      alt="icon-mobile"
       />
     </div>
   )

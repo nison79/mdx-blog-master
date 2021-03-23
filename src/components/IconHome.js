@@ -6,7 +6,8 @@ const IconHome = () => {
     <div>
       <StaticImage
       src='../images/home.svg'
-      width='30'
+      width={30}
+      alt="icon-home"
       />
     </div>
   )

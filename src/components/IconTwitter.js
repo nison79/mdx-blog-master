@@ -6,7 +6,8 @@ const IconTwitter = () => {
     <div>
       <StaticImage
       src='../images/twitter.svg'
-      width='30'
+      width={30}
+      alt="icon-twitter"
       />
     </div>
   )
