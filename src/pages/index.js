@@ -147,6 +147,7 @@ const IndexPage = () => {
             width={100}
           /> 
           <PostBoxInner1>
+          <h5>Photography</h5>
           {data.photography.edges.map(post => (
             <TextDate>
               <h3>
@@ -168,6 +169,7 @@ const IndexPage = () => {
               width={100}
             /> 
           <PostBoxInner2>
+          <h5>Politics</h5>
         {data.politics.edges.map(post => (
           <TextDate>
               <h3>
