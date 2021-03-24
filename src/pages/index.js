@@ -44,7 +44,7 @@ const PostBox1 = styled.div`
   /* border:1px solid black; */
   display:grid;
   grid-template-columns:1fr 1fr;
-  
+  margin-bottom:2.5rem;
   
   /* padding:0rem 5rem; */
   margin-top:4rem;
@@ -52,9 +52,9 @@ const PostBox1 = styled.div`
     font-size:2rem;
     text-align:left;
   }
-  /* a{
-    text-align:left;
-  } */
+  .gatsby-image-wrapper{
+    margin-left:10rem;
+  }
 `
 
 const PostBoxInner1 = styled.div`
@@ -87,6 +87,9 @@ const PostBox2 = styled.div`
   /* padding:1rem; */
   h1{
     font-size:2rem;
+  }
+  .gatsby-image-wrapper{
+    margin-left:10rem;
   }
 `
 
@@ -127,17 +130,22 @@ const IndexPage = () => {
     <Layout>
     <SEO title="Home" />
     <BlogPreview>
-      <StaticImage 
+      {/* <StaticImage 
         src="../images/posts.svg"
         alt="post-design"
         layout="constrained"
         width={200}
-      />
+      /> */}
       
       {/* Photography post loop */}
       <PostBoxWrapper>
         <PostBox1>
-          <h1>Photography</h1>
+            <StaticImage 
+            src="../images/CAMERA.svg"
+            alt="post-design"
+            layout="fixed"
+            width={100}
+          /> 
           <PostBoxInner1>
           {data.photography.edges.map(post => (
             <TextDate>
@@ -153,7 +161,12 @@ const IndexPage = () => {
             {/* Politics post loop */}
           
         <PostBox2>
-          <h1>Politics</h1>
+          <StaticImage 
+              src="../images/POLITICS.svg"
+              alt="post-design"
+              layout="fixed"
+              width={100}
+            /> 
           <PostBoxInner2>
         {data.politics.edges.map(post => (
           <TextDate>

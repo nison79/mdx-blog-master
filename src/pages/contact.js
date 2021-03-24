@@ -31,6 +31,9 @@ const PageWrapper =styled.div`
     font-family:'Poppins';
     align-self:center;
   }
+  .gatsby-image-wrapper {
+    margin-left:1rem;
+  }
 `
 
 const Content = styled.div`
@@ -82,7 +85,7 @@ const contact = ({ data }) => {
             alt="contact-writing"
             layout="constrained"
             width={200}
-            quality={100}
+            quality={50}
             transformOptions={{fit:"cover"}}
           />
         <Content>

@@ -9,7 +9,7 @@ const PageWrapper =styled.div`
   grid-template-columns:1fr;
   /* max-width:1020px; */
   font-family: 'Poppins';
-  @media(min-width:1500px) {
+  @media(min-width:1200px) {
     display:flex;
     justify-content:center;
   }
@@ -45,17 +45,26 @@ const TitleAuthor = styled.div`
   }
 
 
-  @media(min-width:1500px) {
+  @media(min-width:1200px) {
       width:20rem;
       height:30rem;
       display:block;
       /* flex-direction:column; */
     }
   background-color:black;
-    h1 , p  {
+    h1 {
     margin-top:1rem;
     font-family: 'Poppins';
     color:white;
+    }
+    h5 {
+      font-family: 'Poppins';
+      color:white;
+    }
+    p{
+      font-family: 'Poppins';
+      color:white;
+      font-size:0.8rem;
     }
 `
 
@@ -76,6 +85,7 @@ export const data = graphql`
         frontmatter {
           title
           author
+          date(formatString:"Do MMM YYYY")
         }
         body
       }
@@ -89,7 +99,8 @@ const BlogPost = ( { data }) => {
       <PageWrapper>
         <TitleAuthor>
           <h1>{data.mdx.frontmatter.title}</h1>
-          <p>by {data.mdx.frontmatter.author}</p>
+          <h5>by {data.mdx.frontmatter.author}</h5>
+          <p>{data.mdx.frontmatter.date}</p>
         </TitleAuthor>
         <Text>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>

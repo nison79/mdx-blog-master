@@ -38,10 +38,12 @@ const MenuItems = styled.div`
 const Header = ({ siteTitle }) => (
   <HeaderStyled>
     <StaticImageBox>
+      <LinkStyled to='/'>
         <StaticImage 
         alt="logo"
         width={40}
         src="../images/slice1.svg" /> 
+      </LinkStyled>
     </StaticImageBox>
       <MenuItems>
         <h3>
