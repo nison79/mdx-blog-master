@@ -17,7 +17,7 @@ import "./layout.css"
 const PageContainer = styled.div`
   display:grid;
   grid-template-columns:1fr;
-  min-height:90vh;
+  min-height:100vh;
   font-family: 'Poppins';
 `
 

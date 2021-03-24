@@ -14,7 +14,6 @@ const BlogPreview = styled.div`
   padding:0.1rem;
   margin-bottom:2rem;
   min-height:100vh;
-  position:relative;
   h1  {
     font-family:'Poppins';
     font-weight: 400;
@@ -29,6 +28,7 @@ const BlogPreview = styled.div`
 
 const LinkStyled = styled(Link)`
   text-decoration:none;
+  /* text-align:left; */
   color:black;
 `
 
@@ -36,37 +36,45 @@ const PostBoxWrapper = styled.div`
   display:grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
+  grid-gap:2rem;
 
 `
 
 const PostBox1 = styled.div`
   /* border:1px solid black; */
-  display:flex;
-  flex-direction:row;
-  justify-content:space-between;
-  align-items:center;
-  padding:0rem 5rem;
-  margin-top:8rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  
+  
+  /* padding:0rem 5rem; */
+  margin-top:4rem;
   h1{
-    
     font-size:2rem;
+    text-align:left;
   }
+  /* a{
+    text-align:left;
+  } */
 `
 
 const PostBoxInner1 = styled.div`
-    display:flex;
     flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:0rem 5rem;
-    
+    justify-self:start;
+    padding:0rem 0.1rem;
+  
   
 `
+const TextDate = styled.div`
+  padding-right:8rem;
+  p{  
+    font-size:12px;
+    color:grey;
+  }
+`
+
 const PostBoxInner2 = styled.div`
     display:flex;
     flex-direction:column;
-    /* align-items:flex-start; */
-    /* justify-content:center; */
     justify-self:start;
     padding:0rem 0.1rem;
   
@@ -74,11 +82,9 @@ const PostBoxInner2 = styled.div`
 
 
 const PostBox2 = styled.div`
-  display:flex;
-  flex-direction:row;
-  justify-content:space-evenly;
-  align-items:center;
-  padding:1rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  /* padding:1rem; */
   h1{
     font-size:2rem;
   }
@@ -125,7 +131,7 @@ const IndexPage = () => {
         src="../images/posts.svg"
         alt="post-design"
         layout="constrained"
-        width={500}
+        width={200}
       />
       
       {/* Photography post loop */}
@@ -134,13 +140,13 @@ const IndexPage = () => {
           <h1>Photography</h1>
           <PostBoxInner1>
           {data.photography.edges.map(post => (
-            <main>
+            <TextDate>
               <h3>
               <LinkStyled to={post.node.frontmatter.slug}>{post.node.frontmatter.title}
               </LinkStyled>
               </h3>
               <p>{post.node.frontmatter.date}</p>
-            </main>
+            </TextDate>
         ))}
           </PostBoxInner1>
         </PostBox1>
@@ -150,9 +156,12 @@ const IndexPage = () => {
           <h1>Politics</h1>
           <PostBoxInner2>
         {data.politics.edges.map(post => (
-            <h3>
-            <LinkStyled to={post.node.frontmatter.slug}>{post.node.frontmatter.title}</LinkStyled>
-            </h3>
+          <TextDate>
+              <h3>
+              <LinkStyled to={post.node.frontmatter.slug}>{post.node.frontmatter.title}</LinkStyled>
+              </h3>
+              <p>{post.node.frontmatter.date}</p>
+          </TextDate>
         ))}
             </PostBoxInner2>
           </PostBox2>
