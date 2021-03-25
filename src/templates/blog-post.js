@@ -16,11 +16,7 @@ const PageWrapper =styled.div`
 `
 
 const TitleAuthor = styled.div`
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  /* min-height:100vh; */
+  display:block;
   padding:0rem 2rem;
   margin-right:5rem;
   margin-top:2rem;

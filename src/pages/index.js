@@ -69,6 +69,7 @@ const TextDate = styled.div`
   p{  
     font-size:12px;
     color:grey;
+    
   }
 `
 
@@ -91,6 +92,11 @@ const PostBox2 = styled.div`
   .gatsby-image-wrapper{
     margin-left:10rem;
   }
+`
+
+const Divider = styled.hr`
+  border-top: 3px solid ${props => props.primary ? "black" : "lightgreen"};
+  border-radius: 5px;
 `
 
 const IndexPage = () => {
@@ -139,6 +145,7 @@ const IndexPage = () => {
       
       {/* Photography post loop */}
       <PostBoxWrapper>
+
         <PostBox1>
             <StaticImage 
             src="../images/CAMERA.svg"
@@ -150,15 +157,19 @@ const IndexPage = () => {
           <h5>Photography</h5>
           {data.photography.edges.map(post => (
             <TextDate>
+              <p>{post.node.frontmatter.date}</p>
               <h3>
               <LinkStyled to={post.node.frontmatter.slug}>{post.node.frontmatter.title}
               </LinkStyled>
               </h3>
-              <p>{post.node.frontmatter.date}</p>
+              <Divider />
             </TextDate>
         ))}
           </PostBoxInner1>
         </PostBox1>
+
+
+
             {/* Politics post loop */}
           
         <PostBox2>
@@ -172,14 +183,17 @@ const IndexPage = () => {
           <h5>Politics</h5>
         {data.politics.edges.map(post => (
           <TextDate>
+              <p>{post.node.frontmatter.date}</p>
               <h3>
               <LinkStyled to={post.node.frontmatter.slug}>{post.node.frontmatter.title}</LinkStyled>
               </h3>
-              <p>{post.node.frontmatter.date}</p>
+              <Divider primary />
           </TextDate>
         ))}
             </PostBoxInner2>
           </PostBox2>
+
+
       </PostBoxWrapper>
     </BlogPreview>
   </Layout>
